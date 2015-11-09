@@ -5,7 +5,7 @@ import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
-a_prob1 = "https://www.wordnik.com/words/"+str(sys.argv)
+a_prob1 = "https://www.wordnik.com/words/"+str(sys.argv[1])
 page = urllib2.urlopen(a_prob1)
 
 soup = BeautifulSoup(page.read())
@@ -26,5 +26,4 @@ for i, j in zip(dicts, prob):
 f = open('output.txt', 'w')
 sys.stdout = f
 
-print('written meaning to text file')
 print(soup.get_text())
