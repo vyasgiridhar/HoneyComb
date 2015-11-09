@@ -26,5 +26,4 @@ for i, j in zip(dicts, prob):
 f = open('output.txt', 'w')
 sys.stdout = f
 
-print('written meaning to text file')
 print(soup.get_text())
