@@ -9,13 +9,12 @@ a_prob1 = "https://www.wordnik.com/words/"+str(sys.argv[1])
 page = urllib2.urlopen(a_prob1)
 
 soup = BeautifulSoup(page.read())
-
 prob = soup.findAll("div", {"class": "guts active"})
 selec = str(prob[0])
 
 soup = BeautifulSoup(selec)
 dicts = soup.findAll("h3", {"class":"source"})
-prob = soup.findAll("ul")
+prob = soup.find("ul").find('li').get_text()
 
 '''
 for i, j in zip(dicts, prob):
@@ -26,4 +25,4 @@ for i, j in zip(dicts, prob):
 f = open('output.txt', 'w')
 sys.stdout = f
 
-print(soup.get_text())
+print(prob[1:])
